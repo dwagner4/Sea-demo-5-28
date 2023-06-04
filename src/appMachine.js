@@ -1,5 +1,5 @@
 import { createMachine, interpret, assign } from 'xstate';
-import { gameWrite, chatWrite } from './dbClient.js'
+// import { gameWrite, chatWrite } from './dbClient.js'
 
 // create an initialBoard Array of strings 364 elements long containing 'e'
 const initialBoard = Array(364).fill('e');
@@ -116,7 +116,7 @@ const functions = {
       console.log( 'submit event', event ) 
     },
     gamewrite: ( context, event ) => { 
-      gameWrite(event)
+      // gameWrite(event)
     },
     dataupdate: ( context, event ) => {
       console.log("Fuck the data")

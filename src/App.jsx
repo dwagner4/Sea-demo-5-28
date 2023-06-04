@@ -8,23 +8,20 @@ import { createMachine, interpret, assign } from 'xstate';
 import { functions, logic } from './appMachine.js'
 
 import { Canvas } from '@react-three/fiber'
-import {GoExperience} from './go/GoExperience.jsx'
+import Experience from './Experience.jsx'
 import { Headsup } from './components/headsup/Headsup.jsx'
 
 
-const appMachine = createMachine(logic,functions);
 
+/** create and start FSM service */
+const appMachine = createMachine(logic,functions);
 const appMachineService = interpret(appMachine)
 appMachineService.onTransition(state => console.log(state.value, state.context ) )
-
-
 appMachineService.start()
-// goMachineService.send('START')
-
 
 export { appMachine, appMachineService }
-// export { goMachine } submitSpace submitSpace
 
+/** Create global context using xstate */
 export const AppContext = createContext(appMachineService)
 
 function App() {
@@ -33,13 +30,13 @@ function App() {
       <Canvas
         shadows
         camera={ {
-          fov: 45,
-          near: 0.1,
-          far: 200,
-          position: [ 0, 0.5, 1 ]
+            fov: 45,
+            near: 0.1,
+            far: 200000,
+            position: [ 0, 400, 1200 ]
         } }
       >
-        <GoExperience />
+        <Experience />
       </Canvas>
 
       <div className="overlay">

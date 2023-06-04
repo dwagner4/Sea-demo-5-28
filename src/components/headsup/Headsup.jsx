@@ -25,7 +25,7 @@ export const Headsup = () =>
   return (
     <div>
       {/* <h1>Yoho {state.value}</h1> */}
-      <Auth />
+      {/* <Auth /> */}
       {/* { state.matches('auth') ? <GameAuth /> : null } */}
       { state.matches('gameform') ? <GameForm /> : null }
       { state.matches('gameselection') ? <GameSelection /> : null }
