@@ -1,8 +1,8 @@
 import { useGLTF } from "@react-three/drei";
 
 export function Trucks(props) {
-  const model = useGLTF('./Trailer_TrucksComp.glb')
+  const model = useGLTF('./glb_models/Trailer_TrucksComp.glb')
   return <primitive object={ model.scene } scale={ 1.0 } />
 }
 
-useGLTF.preload("./Trailer_TrucksComp.glb");
+useGLTF.preload("./glb_models/Trailer_TrucksComp.glb");

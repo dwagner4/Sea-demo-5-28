@@ -1,8 +1,8 @@
 import { useGLTF } from "@react-three/drei";
 
 export function NorthTerminal(props) {
-  const model = useGLTF('./NorthTerminalComp.glb')
+  const model = useGLTF('./glb_models/NorthTerminalComp.glb')
   return <primitive object={ model.scene } scale={ 1.0 } />
 }
 
-useGLTF.preload("./NorthTerminalComp.glb");
+useGLTF.preload("./glb_models/NorthTerminalComp.glb");
