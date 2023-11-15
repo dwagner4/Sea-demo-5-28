@@ -29,6 +29,8 @@ import { TrainTracks } from './models/TrainTracks.jsx'
 import { Terminal2Roadway } from './models/Terminal2Roadway.jsx'
 import { Trucks } from './models/Trucks.jsx'
 
+import { TestPlane } from './models/TestPlane.jsx'
+
 
 
 export default function Experience()
@@ -46,6 +48,8 @@ export default function Experience()
          t2roadway,
          buildings,
          planes,
+         linkStation,
+         trucks,
     }, set] = useControls(() => ( 'Menu', { 
         View:  {options: 
             [
@@ -65,7 +69,9 @@ export default function Experience()
             'concourseD': true,
             't2roadway': true,
             'buildings': true,
-            'planes': true,
+            'planes': false,
+            'linkStation': true,
+            'trucks': true,
         }, {collapsed: true}),
         Sequence: button( () => {
             set({ 
@@ -185,27 +191,28 @@ export default function Experience()
         <Lights />
         <Sky distance={1000000} />
         
-        <AirportTopo position={[ 0, 0, 0 ]}/> 
-        <SouthTerminal position={[ 0, 0, 0 ]}/> 
-        <ParkingGarage position={[ 0, 0, 0 ]}/>
-        <MainTerminal position={[ 0, 0, 0 ]} />
-
-        <BuildingMasses position={[ 0, 0, 0 ]} />
-        <CarAgency position={[ 0, 0, 0 ]} />
-        <CargoPlanes position={[ 0, 0, 0 ]} />
-        <ConcourseD position={[ 0, 0, 0 ]} />
-        <FuelTanks position={[ 0, 0, 0 ]} />
-        <NEGTC position={[ 0, 0, 0 ]} />
-        <LinkStation position={[ 0, 0, 0 ]} />
-
-        <NorthTerminal position={[ 0, 0, 0 ]}/>
-        <PlanesParked position={[ 0, 0, 0 ]}/>
-        <Planes3 position={[ 0, 0, 0 ]}/>
-
-        <TrainTracks Position={[ 0, 0, 0 ]} />
+        <AirportTopo position={[ 0, 26, 0 ]}/> 
         
-        <Terminal2Roadway Position={[ 0, 0, 0 ]} />
-        <Trucks Position={[ 0, 0, 0 ]} />
+        {(southTerminal) ? <SouthTerminal position={[ 0, 0, 0 ]}/> : null} 
+        {(garage) ? <ParkingGarage position={[ 0, 10, 0 ]}/> : null}
+        {(mainTerminal) ? <MainTerminal position={[ 0, -5, 0 ]} /> : null}
+
+        {(buildings) ? <BuildingMasses position={[ 0, 0, 0 ]} /> : null}
+
+        {(buildings) ? <CarAgency position={[ 0, 10, 0 ]} /> : null}
+        {(planes) ? <CargoPlanes position={[ 0, 3.5, 0 ]} /> : null}
+        {(concourseD) ? <ConcourseD position={[ 0, 0, 0 ]} /> : null}
+        {(buildings) ? <FuelTanks position={[ 0, 10, 0 ]} /> : null}
+        {(gtc) ? <NEGTC position={[ 0, 0, 0 ]} /> : null}
+        {(linkStation) ? <LinkStation position={[ 0, -16, 0 ]} /> : null}
+        {(linkStation) ? <TrainTracks position={[ 0, -16, 0 ]} /> : null}
+        {(northTerminal) ? <NorthTerminal position={[ 0, -4, 0 ]}/> : null}
+        {(planes) ? <PlanesParked position={[ 0, -4, 0 ]}/> : null}
+        {(planes) ? <Planes3 position={[ 0, -10, 0 ]}/> : null} }
+        {(t2roadway) ? <Terminal2Roadway Position={[ 0, 0, 0 ]} /> : null}
+        {(trucks) ? <Trucks position={[ 0, 8, 0 ]} /> : null}
+
+            {/* <TestPlane position={[0, 80, 0]} rotation={[Math.PI / 2, 0, 0]} scale={10000} /> */}
        
     </>
    
